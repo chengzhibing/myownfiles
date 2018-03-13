@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>信App下载</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+  	<meta name="apple-mobile-web-app-capable" content="yes"/>
+  	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> 
+  	<meta content="telephone=no" name="format-detection"/>
+  	<meta content="email=no" name="format-detection"/>
+  	<link href="/c_modules/css/base-min.css" rel="stylesheet" />
+  	<link href="../css/leading_index.css" rel="stylesheet" />	
+</head>
+<body>
+    <div class="mainBox" id="mainBox">
+        <div class="content_wrap" id="contentWrap">
+            <script type="text/html" id="innerContent">
+                <div class="container" id="container"><% for(var i=0;i<data.length;i++){%><img src="" data-src="<%= data[i].imgUrl %>" class="img<%= data[i].order %>"/><%}%></div>
+            </script>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="/c_modules/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/c_modules/sea.js"></script>
+<script type="text/javascript" src="/z_modules/template/template-web.js"></script>
+<script>
+    seajs.use('../js/leading_index.js');   
+</script>
+
+</html>

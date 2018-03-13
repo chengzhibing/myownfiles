@@ -1,0 +1,86 @@
+1、AJAX即“Asynchronous JavaScript and XML”（异步的JavaScript与XML技术），指的是一套综合了多项技术的浏览器端网页开发技术。
+以前，几乎所有的网站都由HTML页面实现，服务器处理每一个用户请求都需要重新加载网页。这样的处理方式效率不高。用户的体验是所有页面都会消失，再重新载入，即使只是一部分页面元素改变也要重新载入整个页面，不仅要刷新改变的部分，连没有变化的部分也要刷新。这会加重服务器的负担。
+这可以用异步加载来解决。ajax实现了局部刷新页面。
+2、XMLHttpRequest对象
+声明一个XMLHttpRequest对象：
+
+var request =new XMLHttpRequest();(IE5和IE6不支持这种声明)
+兼容IE5和IE6的声明：
+var request;
+if(window.XMLHttpRequest){
+Request=new XMLHttpRequest();//IE7+,和chrome，Firefox等浏览器;}
+else{
+request=new ActiveXObject(“Microsoft.XMLHTTP”);//IE5,IE6
+}
+
+Http
+
+◎Http：
+
+◆一套计算机通过网络进行通信的规则；
+◆一种无状态协议（无状态协议：不保留持久的连接）；
+◆使客户（浏览器）能够向web服务器请求信息和服务。
+
+◎HTTP请求：
+
+●步骤：1.建立TCP连接；
+2.Web浏览器向Web服务器发送请求命令；
+3.Web浏览器发送请求头信息；
+4.Web服务器应答；
+5.Web服务器发送应答头信息；
+6.Web服务器向浏览器发送数据；
+7.Web服务器关闭TCP连接。
+●HTTP请求一般由四部分组成：
+1.HTTP请求的方法或动作，比如是get还是post请求；
+2.正在请求的URL（请求的地址）；
+3.请求头，包含一些客户端环境信息、身份验证信息等；
+4.请求体（请求正文），可以包含客户提交的查询字符串信息、表单信息等。
+
+●GET：一般用于信息获取（常用于查询）；使用URL传递参数（变量显示在URL中，所有人可见）；对所发送信息的数量有限制（一般在2000个字符）。
+POST：一般用于修改服务器上的资源；对所发送的信息数量无限制。（不在URL中显示，对其他人不可见，信息在请求体中）（常用于发送表单数据，新建、修改等）。
+
+◎HTTP响应：
+
+一般由三部分组成：
+1.一个数字和文字组成的状态码，用来显示请求是成功还是失败；
+2.响应头，响应头也和请求头一样包含许多有用的信息，例如服务器类型、日期时间、内容类型和长度等；
+3.响应体（响应正文）。
+
+XMLHttpRequest发送请求
+
+open(method,url,asyn) //(请求方法GET/POST，请求地址，同步（false）/异步（true，默认为true，可不写）)；
+send(string) //（将请求发送到服务器，GET请求参数在URL中，所以参数string可写none，也可不写；POST时参数string要写）
+
+XMLHTTPRequest取得响应：
+responseText：获得字符串形式的响应数据；
+responseXML：获得XML形式的响应数据；
+status和statusTest：以数字和文本的形式返回HTTP状态码；
+getAllResponseHeader（）：获取所有的响应报头；
+getResponseHeader（）：查询响应中的某个字段的值；
+readyState属性：这个属性的变化代表了服务器的响应的变化。
+0：请求未初始化，open还没有调用；
+1：服务器连接已建立，open已经调用；
+2：请求已接受，也就是接收到头信息了；
+3：请求处理中，也就是接收到响应主体了；
+4: 请求已完成，且响应已就绪，也就是响应完成了。
+eg：var request=new XMLHttpRequest();
+request.open(“GET”,“get.php”,true);
+request.send();
+request.onreadystatechange=function(){
+if(request.readyState===4&&request.status===200){
+//做一些事情 request.responseText
+}
+}
+跨域
+◎一个域名地址的组成:
+
+当协议、子域名、主域名、端口号中的任意一个不相同时，都算作不同域。
+◎不同域之间相互请求资源，就算做跨域，比如：http://www.abc.com/index/html请求http://www.efg.com/service.php
+◎Javascript出于安全方面的考虑，不允许跨域调用其他页面的对象。
+◎跨域就是因为javascript同源策略的限制，a.com域名下的js无法操作b.com或是c.a.com域名下的对象。
+◎Javascript出于安全方面的考虑，不允许跨域调用其他页面的对象。
+●www.abc.com/index.html调用www.abc.com/service.php（没有写协议默认是http，所以协议、主域名、子域名和端口号都相同，非跨域）
+●www.abc.com/index.html调用www.efg.com/service.php(子域名不同，跨域）
+●www.abc.com/index.html调用bbs.abc.com/service.php（子域名不同，跨域）
+●www.abc.com/index.html调用https://www.abc.com/service.php(协议不同，一个是http，一个是https，跨域）
+●www.abc.com/index/html调用www.abc.com:81/service.php(端口号不同，跨域）

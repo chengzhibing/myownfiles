@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<body>
+	<p>工厂模式是为了解决多个类似对象声明的问题;也就是为了解决实列化对象产生重复的问题。</p>
+	<p>优点：能解决多个相似的问题。</p>
+	<p>缺点：不能知道对象识别的问题(对象的类型不知道)。</p>
+</body>
+<script>
+//factoryModal();
+function factoryModal(){
+	//定义自行车的构造函数
+	function BicycleShop(name){
+		this.name=name;
+		this.methods=function(){
+			return this.name;
+		}
+	};
+	BicycleShop.prototype={
+		constructor:BicycleShop,
+		/**
+		 * [sellBicycle 买自行车的方法]
+		 * @param  {[type]} model [自行车型号]
+		 * @return {[undifined]} 
+		 */
+		sellBicycle:function(model){
+	        var bicycle=this.createBicycle(model);
+	        bicycle.A();//执行A逻辑；
+	        bicycle.B();//执行B逻辑；
+	        return bicycle;
+		},
+		createBicycle:function(model){
+	        throw new Error('父类是抽象类，不能直接调用，需要子类重写该方法');
+		}
+	}
+	//实现原型继承
+	function extend(Sub,Sup){
+	    var F=function(){};
+	    F.prototype=Sup.prototype;//设置空函数的原型等于超类的原型；
+	    Sub.prototype=new F();//设置子类的原型等于空函数的实例；
+	    Sub.prototype.constructor=Sub;//
+	    Sub.sub=Sup.prototype;//将超类的原型保存为子类的一个属性；
+	    if(Sup.prototype.constructor=Object.prototype.constructor){
+	    	Sup.prototype.constructor=Sub;
+	    }
+	    console.log(Sub.prototype.__proto__==Sup.prototype)
+	}
+	//子类
+	var BicycleChild=function(name){
+        this.name=name+"浩荡";
+        //继承构造函数父类中的属性和方法；
+        BicycleShop.call(this,name);
+
+	};
+	// 子类继承父类原型方法
+    extend(BicycleChild,BicycleShop);
+    //子类重写父类的方法；
+    BicycleChild.prototype.createBicycle=function(){
+    	var A=function(){
+            console.log('执行A逻辑操作');
+    	}
+    	var B=function(){
+            console.log("执行B逻辑操作");
+    	}
+    	return {
+    		A:A,
+    		B:B
+    	}
+    }
+    //实例化子类
+    var  mmm=new BicycleChild("飞鸽");
+    console.log(mmm)
+    mmm.sellBicycle("sbausbassas")
+}
+
+
+
+
+function gongchang(){
+	//定义一个父类
+	function SupFun(name){
+		this.name=name;
+		this.methods=function(){      
+		}
+	}
+	SupFun.prototype={
+		constructor:SupFun,
+		sellFun:function(name){
+            var  fun=this.createFun();
+            fun.A();//执行A逻辑；
+            fun.B();//执行B逻辑；
+            return fun;
+		},
+		createFun:function(name){
+            throw new Error('父类是抽象类，不能直接调用，需要子类重写该方法');
+		}
+	};
+	//定义一个子类
+	function SubFun(name){
+		SupFun.call(this,name);//子类继承父类的实例方法和属性
+	}
+	//子类继承父类的原型属性和方法；
+	extend(SubFun,SupFun);
+	//定义一个继承方法，实现原型继承；
+	function extend(Sub,Sup){
+		var F=function(){};
+		
+	    Sub.prototype=new F();
+
+	    Sub.prototype.constructor=Sub;
+	    F.prototype=Sup.prototype;
+	    console.log(Sub.prototype);
+        if(Sup.prototype.constructor==Object.prototype.constructor){
+        	Sup.prototype.constructor=Sup;
+        }
+	}
+	
+	SubFun.prototype.createFun=function(){
+		var A=function(){
+			console.log('执行A逻辑操作');
+		}
+		var B=function(){
+			console.log('执行B逻辑操作');
+		}
+		return {
+			A:A,
+			B:B
+		}
+	}
+	var fff=new SubFun("账单");
+    console.log(fff.__proto__);
+    //fff.sellFun();
+	//console.log(SupFun.prototype.createFun())
+}
+function add(){
+
+
+	var obj={
+		na:{
+			hello:function(){
+				console.log("dssads");
+			}
+		}
+	}
+	var a=obj.na;
+	obj.na={
+		asd:function(){
+		    console.log('aaaaaaaaaaaaaaa');
+		}
+	};
+	console.log(a==obj.na)
+	console.log(a)
+	console.log(obj.na)
+}
+add();
+</script>
+</html>
