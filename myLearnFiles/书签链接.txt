@@ -72,3 +72,5 @@
    https://laod.cn/hosts/
 37、程序员开发工具集合
    http://msdn.itellyou.cn/
+38、webpack 中文学习网站
+   https://doc.webpack-china.org/
