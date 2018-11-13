@@ -56,6 +56,7 @@ let result=arr.reduce(function(tmp,item,index){
 	}else{
         return (tmp+item)/arr.length;
 	}
+(3)let arr=[11,3562];
 })
 
 
