@@ -1,7 +1,8 @@
 一、文档连接
 1、印记中国 （IT最全的学习网站）
 https://docschina.org/home/doc
-2、
+2、IP地址划分
+https://www.jianshu.com/p/71113f0c451c
 1、(总结移动端页面开发时需要注意的一些问题) 
    http://www.mamicode.com/info-detail-1187764.html
 2、Node初学者入门，一本全面的NodeJS教程
@@ -78,6 +79,8 @@ https://docschina.org/home/doc
    http://msdn.itellyou.cn/
 38、webpack 中文学习网站
    https://doc.webpack-china.org/
+39、开源软件（各行业）
+https://sourceforge.net/projects/gnuwin32/
 
 二、视频连接
 1.?ps 链接: https://pan.baidu.com/s/1mjYbcJA 密码: pqdt
