@@ -1,26 +1,14 @@
-±Ê¼Ç
-1¡¢ËùÎ½ Promise£¬¾ÍÊÇÒ»¸ö¶ÔÏó£¬ÓÃÀ´´«µÝÒì²½²Ù×÷µÄÏûÏ¢
-2¡¢PromiseÊÇÒì²½±à³ÌµÄÒ»ÖÖ½â¾ö·½°¸£¬ËüÓÐÈýÖÖ×´Ì¬£¬·Ö±ðÊÇpending-½øÐÐÖÐ¡¢resolved-ÒÑÍê³É¡¢rejected-ÒÑÊ§°Ü
-3¡¢Promise ¹¹Ôìº¯Êý½ÓÊÜÒ»¸öº¯Êý×÷Îª²ÎÊý£¬¸Ãº¯ÊýµÄÁ½¸ö²ÎÊý·Ö±ðÊÇ resolve ·½·¨ºÍ reject ·½·¨¡£
-Èç¹ûÒì²½²Ù×÷³É¹¦£¬ÔòÓÃ resolve ·½·¨½« Promise ¶ÔÏóµÄ×´Ì¬£¬´Ó¡¸Î´Íê³É¡¹±äÎª¡¸³É¹¦¡¹£¨¼´´Ó pending ±äÎª resolved£©£»
-Èç¹ûÒì²½²Ù×÷Ê§°Ü£¬ÔòÓÃ reject ·½·¨½« Promise ¶ÔÏóµÄ×´Ì¬£¬´Ó¡¸Î´Íê³É¡¹±äÎª¡¸Ê§°Ü¡¹£¨¼´´Ó pending ±äÎª rejected£©
-4¡¢Promise ¶ÔÏóµÄ×´Ì¬¸Ä±ä£¬Ö»ÓÐÁ½ÖÖ¿ÉÄÜ£º´Ó Pending ±äÎª Resolved ºÍ´Ó Pending ±äÎª Rejected
-5¡¢ÓÐÁË Promise ¶ÔÏó£¬¾Í¿ÉÒÔ½«Òì²½²Ù×÷ÒÔÍ¬²½²Ù×÷µÄÁ÷³Ì±í´ï³öÀ´£¬±ÜÃâÁË²ã²ãÇ¶Ì×µÄ»Øµ÷º¯Êý
-6¡¢¼òµ¥À´½²£¬¾ÍÊÇÄÜ°ÑÔ­À´µÄ»Øµ÷Ð´·¨·ÖÀë³öÀ´£¬ÔÚÒì²½²Ù×÷Ö´ÐÐÍêºó£¬ÓÃÁ´Ê½µ÷ÓÃµÄ·½Ê½Ö´ÐÐ»Øµ÷º¯Êý¡£
-7¡¢ÓÐÁË Promise ¶ÔÏó£¬¾Í¿ÉÒÔ½«Òì²½²Ù×÷ÒÔÍ¬²½²Ù×÷µÄÁ÷³Ì±í´ï³öÀ´£¬±ÜÃâÁË²ã²ãÇ¶Ì×µÄ»Øµ÷º¯Êý¡£
+
+//1.promiseè°ƒç”¨thençš„æ—¶å€™ï¼Œå¯èƒ½å½“å‰çš„promsieå¹¶æ²¡æœ‰æˆåŠŸã€‚
+//2.å‘å¸ƒè®¢é˜…æ¨¡å¼ï¼Œå¦‚æžœå½“å‰çš„çŠ¶æ€æ˜¯pendingæ—¶ï¼Œæˆ‘ä»¬éœ€è¦å°†æˆåŠŸå’Œå¤±è´¥çš„å›žè°ƒå­˜æ”¾èµ·æ¥ï¼Œç¨åŽè°ƒç”¨resolveå’Œrejectçš„æ—¶å€™ï¼Œ
+//é‡æ–°æ‰§è¡Œ
 
 
-await»á¸Ä±äº¯Êý  µÃµ½·´À¡ÐÅÏ¢Ö®ºó²Å¼ÌÐøÖ´ÐÐ
-async ÓÃÓÚÉêÃ÷Ò»¸ö function ÊÇÒì²½µÄ£¬¶ø await ÓÃÓÚµÈ´ýÒ»¸öÒì²½·½·¨Ö´ÐÐÍê³É¡£
-
-1 Êä³öµÄÊÇÒ»¸ö Promise ¶ÔÏó¡£
-async º¯Êý·µ»ØµÄÊÇÒ»¸ö Promise ¶ÔÏó
-Èç¹ûÔÚº¯ÊýÖÐ return Ò»¸öÖ±½ÓÁ¿£¬async »á°ÑÕâ¸öÖ±½ÓÁ¿Í¨¹ý Promise.resolve() ·â×°³É Promise ¶ÔÏó¡£
-Promise µÄÌØµã--ÎÞµÈ´ý£¬ËùÒÔÔÚÃ»ÓÐ await µÄÇé¿öÏÂÖ´ÐÐ async º¯Êý£¬Ëü»áÁ¢¼´Ö´ÐÐ£¬·µ»ØÒ»¸ö Promise ¶ÔÏó£¬²¢ÇÒ£¬¾ø²»»á×èÈûºóÃæµÄÓï¾ä¡£
-
-2¡¢await ²»½ö½öÓÃÓÚµÈ Promise ¶ÔÏó£¬Ëü¿ÉÒÔµÈÈÎÒâ±í´ïÊ½µÄ½á¹û£¬ËùÒÔ£¬await ºóÃæÊµ¼ÊÊÇ¿ÉÒÔ½ÓÆÕÍ¨º¯Êýµ÷ÓÃ»òÕßÖ±½ÓÁ¿µÄ
-Èç¹ûËüµÈµ½µÄ²»ÊÇÒ»¸ö Promise ¶ÔÏó£¬ÄÇ await ±í´ïÊ½µÄÔËËã½á¹û¾ÍÊÇËüµÈµ½µÄ¶«Î÷¡£
-Èç¹ûËüµÈµ½µÄÊÇÒ»¸ö Promise ¶ÔÏó£¬await ¾ÍÃ¦ÆðÀ´ÁË£¬Ëü»á×èÈûºóÃæµÄ´úÂë£¬µÈ×Å Promise ¶ÔÏó resolve£¬È»ºóµÃµ½ resolve µÄÖµ£¬×÷Îª await ±í´ïÊ½µÄÔËËã½á¹û¡£
 
 
-async/await µÄÓÅÊÆÔÚÓÚ´¦Àí then Á´
+
+//1.promiseæˆåŠŸå’Œå¤±è´¥çš„å›žè°ƒçš„è¿”å›žå€¼å¯ä»¥ä¼ é€’åˆ°å¤–å±‚çš„ä¸‹ä¸€ä¸ªthen
+//2.å¦‚æžœè¿”å›žå€¼æ˜¯ä¸ªæ™®é€šå€¼çš„è¯ï¼ˆä¼ é€’åˆ°ä¸‹ä¸€æ¬¡çš„ æˆåŠŸä¸­ï¼‰ï¼Œå‡ºé”™çš„æƒ…å†µï¼ˆä¸€å®šä¼šèµ°åˆ°ä¸‹ä¸€ä¸ªå¤±è´¥ï¼‰ï¼Œ
+//å¯èƒ½è¿˜æœ‰promsieçš„æƒ…å†µï¼ˆä¼šé‡‡ç”¨promsieçš„çŠ¶æ€ï¼Œå†³å®šèµ°ä¸‹ä¸€æ¬¡çš„æˆåŠŸè¿˜æ˜¯å¤±è´¥ï¼‰
+//3.é”™è¯¯å¤„ç†ï¼šå¦‚æžœç¦»è‡ªå·±æœ€è¿‘çš„thenæ²¡æœ‰é”™è¯¯å¤„ç†ï¼Œä¼šå‘ä¸‹æ‰¾ã€‚
+//4.æ¯æ¬¡æ‰§è¡Œå®Œpromise.then()ä¹‹åŽè¿”å›žçš„éƒ½æ˜¯ä¸€ä¸ªæ–°çš„promsie

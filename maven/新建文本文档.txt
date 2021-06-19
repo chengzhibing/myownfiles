@@ -1,0 +1,9 @@
+1、Maven的安装及下载。
+1)官网下载安装--》解压--》配置环境变量（MAVEN-HOME,PATH）--》将maven解压包中的conf文件夹中的（settings.xml文件）复制到用户的.m2中.
+2)settings文件：
+localRepository:修改maven仓库的地址。不修改的话采用默认地址。
+mirrors:镜像：通常采用此地址http://uk.maven.org/maven2
+3)Ecilpse集成maven。window-->preference-->Maven-->Installations-->add(Maven的安装路径)
+  window-->preference-->Maven-->Usersettings(保证设置的settings文件为设置后的settings文件)
+
+3）maven的pom文件管理依赖，坐标（groupId, artificId,package,version）
