@@ -2,7 +2,30 @@ const PENDING = "pending";
 const FULFILLED = "fulfilled";
 const REJECTED = "rejected";
 const resolvePromise = (promise2, x, resolve, reject) => {
-    console.log(promise2)
+    if(promise2 === x) {
+        throw "返回值不能新的promise指向同一个对象"
+    }else if((typeof x === "object" && x !== null) || typeof x === "function") {
+        let then = x.then; //防止调用了成功，再调用失败
+        let called = false;
+        if(typeof then === "function") {
+            then.call(x, y=> {
+                if(called) return;  //如果调用了失败，值已经为true，再调用成功，就直接return；
+                this.called = true; //调用成功后赋值，
+            //resolve(y) //如果回调函数返回的是一个promise，那么生成的新的promise要根据返回的promsie的状态，来确定状态
+              //假如y又是一个promise呢，这需要递归调用resolvePromise，一直到y为普通值为主，其实就是最外层的promsie的状态由最里面的promise的状态来决定执行什么状态的操作
+              resolvePromise(promise2, y, resolve, reject)
+            }, e=> {
+                if(called) return;
+                this.called = true;
+                reject(e);
+            })
+        }
+    }else {
+       if(called) return;
+       this.call = true;
+        resolve(x)
+    }
+    // console.log(promise2)
 }
 class MyPromise {
     constructor(handler) {
@@ -14,7 +37,6 @@ class MyPromise {
         try {
             handler(this.resolve.bind(this), this.reject.bind(this))
         } catch (e) {
-            console.log("[][][][][][][][][]")
             this.reject(e);
         }
 
@@ -24,6 +46,7 @@ class MyPromise {
             this.value = value;
             this.status = FULFILLED;
             this.successCallbackList.forEach((callback) => {
+                console.log(this.value)
                 callback(this.value)
             })
         }
@@ -53,16 +76,15 @@ class MyPromise {
     //promise1 resolve() --> then();
     //peromise2 resolve() --> then();
     then(onFulfiled, onRejected) {
-        let fulfilledFn = this.isFunction(onFulfiled) ? onFulfiled : () => {
-            //如果不是一个函数，则忽略
+        let fulfilledFn = this.isFunction(onFulfiled) ? onFulfiled : (value) => {
+            return value;
         }
-        let rejectedFn = this.isFunction(onRejected) ? onRejected : () => {
-
+        let rejectedFn = this.isFunction(onRejected) ? onRejected : (reason) => {
+           throw reason
         }
         let promise2 = new MyPromise((resolve, reject) => {
             if (this.status === PENDING) {
                 this.successCallbackList.push((value) => { //切片，便于扩展
-                   
                     setTimeout(() => {
                         try {
                             let x = fulfilledFn(value);
@@ -70,12 +92,10 @@ class MyPromise {
                         } catch (e) {
                             reject(e)
                         }
-
                     }, 0)
 
                 });
                 this.failCallbackList.push((reason) => {
-                    
                     setTimeout(() => {
                         try {
                             let x = rejectedFn(reason);
