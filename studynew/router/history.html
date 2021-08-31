@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>history</title>
+	<style>
+		.wrap {
+			height: 30px;
+			width: 100%;
+			display: flex;
+			background-color: grey;
+		}
+
+		a {
+			width: 20%;
+			height: 100%;
+		}
+
+		button {
+			height: 100%;
+			width: 20%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrap">
+		<a href="/">白色</a>
+		<a href="/green">绿色</a>
+		<a href="/yellow">黄色</a>
+		<a href="/grey">灰色</a>
+	</div>
+	<script>
+		class MyBaseRouter {
+			constructor() {
+				this.routes = {};
+				this._bindRoute.bind(this)
+				this._bindRoute();
+				this.init.bind(this)
+				this.init(location.pathname)
+			}
+			init(path) {
+				history.replaceState({path}, null, path); //此方法不会触发popstate事件，但是修改的路由会显示在url中
+			
+				this.bindRouteByPath(path)
+			}
+			route(path, callback) {
+				this.routes[path] = callback || function () { }
+			}
+			bindRouteByPath(path) {
+				const cb = this.routes[path];
+				cb && cb();
+			}
+			go(path){
+				history.pushState({path}, null, path);
+				this.bindRouteByPath(path)
+			}
+			_bindRoute() {
+				window.addEventListener("popstate", (e) => {
+					const path = e.state && e.state.path; //这里的state是通过pushState注入进去的
+					this.bindRouteByPath(path);
+				}, false)
+			}
+		}
+		const changeBgColor = function(color) {
+       body.style.backgroundColor = color;
+		}
+		const router = new MyBaseRouter()
+		const body = document.querySelector("body")
+		window.addEventListener("load", (e) => {
+			console.log("oooooppppp")
+			const path = location.pathname
+			router.init(path)
+		})
+		body.addEventListener("click", function(e) {
+			console.log(e)
+			if(e.target.tagName === "A") {
+				e.preventDefault();
+				const att = e.target.getAttribute("href")
+				router.go(att)
+			}
+		}, false)
+		router.route("/", () => {
+			changeBgColor("white")
+		})
+		router.route("/grey", () => {
+			changeBgColor("grey")
+		})
+		router.route("/yellow", () => {
+			changeBgColor("yellow")
+		})
+		router.route("/green", () => {
+			changeBgColor("green")
+		})
+	</script>
+</body>
+
+</html>

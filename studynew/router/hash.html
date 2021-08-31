@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hash</title>
+    <style>
+		.wrap {
+			height: 30px;
+			width: 100%;
+			display: flex;
+			background-color: grey;
+		}
+
+		a {
+			width:20%;
+			height:100%;
+		}
+		button{
+			height:100%;
+			width:20%;
+		}
+	</style>
+</head>
+
+<body>
+    <div class="wrap">
+		<a href="#/">白色</a>
+		<a href="#/green">绿色</a>
+		<a href="#/yellow">黄色</a>
+		<a href="#/grey">灰色</a>
+	</div>
+    <script>
+        class MyRouter {
+            constructor() {
+                this.routers = {}
+                this.refresh = this.refresh.bind(this)
+                this.bindRouter = this.bindRouter.bind(this)
+                this.bindRouter()
+            }
+            push(path, cb) { //注册路由
+                this.routers[path] = cb || function () { }
+            }
+            refresh() {
+               const path = location.hash.slice(1);
+               console.log(path)
+               const cb = this.routers[path];
+               cb && cb();
+            }
+            bindRouter() {
+                window.addEventListener("load", this.refresh, false)
+                window.addEventListener("hashchange", this.refresh, false)
+            }
+
+        }
+        const changeBackgroundColor = function (color) {
+            const body = document.querySelector("body")
+            body.style.backgroundColor = color;
+        }
+        const myRouter = new MyRouter()
+        myRouter.push("/", () => {
+            changeBackgroundColor("white")
+        })
+        myRouter.push("/green", () => {
+            changeBackgroundColor("green")
+        })
+        myRouter.push("/grey", () => {
+            changeBackgroundColor("grey")
+        })
+        myRouter.push("/yellow", () => {
+            changeBackgroundColor("yellow")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent{
+            height:400px;
+            width:400px;
+            background: red;
+        }
+        #child{
+            height:200px;
+            width:200px;
+            background: green;
+        }
+        #son{
+            display: block;
+            height:100px;
+            width:100px;
+            background: #fff;
+            margin-left:25px;
+            margin-top:25px;
+        }
+    </style>
+</head>
+<body>
+    <div id ="parent">
+        <p id ="child">
+            <a id ="son" href="https://www.baidu.com">点我呀</a>
+        </p>
+    </div>
+</body>
+<script>
+    const parent = document.getElementById("parent")
+    const child = document.getElementById("child")
+    const son = document.getElementById("son")
+    window.addEventListener("click", function(e) {
+      console.log("windows 捕获",e.target.nodeName, e.currentTarget.nodeName)
+    }, true)
+    parent.addEventListener("click", function(e) {
+        // e.stopPropagation()
+        console.log("parent 捕获", e.target.nodeName, e.currentTarget.nodeName)
+        return;
+    }, true)
+    child.addEventListener("click", function(e) {
+        console.log("child 捕获", e.target.nodeName, e.currentTarget.nodeName)
+    }, true)
+    son.addEventListener("click", function(e) {
+        e.preventDefault()
+        console.log("son 捕获", e.target.nodeName, e.currentTarget.nodeName)
+    }, true)
+    window.addEventListener("click", function(e) {
+      console.log("windows 冒泡", e.target.nodeName, e.currentTarget.nodeName)
+    }, false)
+    parent.addEventListener("click", function(e) {
+        console.log("parent 冒泡", e.target.nodeName, e.currentTarget.nodeName)
+    }, false)
+    child.addEventListener("click", function(e) {
+        console.log("child 冒泡", e.target.nodeName, e.currentTarget.nodeName)
+    }, false)
+    son.addEventListener("click", function(e) {
+        console.log("son 冒泡", e.target.nodeName, e.currentTarget.nodeName)
+    }, false)
+</script>
+</html>
