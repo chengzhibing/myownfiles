@@ -1,0 +1,25 @@
+package Goods;
+
+import java.util.Scanner;
+
+public class GoodsHashMap {
+
+	public static <Goods> void main(String[] args) {
+
+		Scanner consolel = new Scanner(System.in);
+		
+      System.out.println("请输入商品信息：");
+       int i=0;
+       while(i < 3) {
+    	   System.out.println("请输入第"+i+"条商品信息：");
+    	   System.out.println("请输入商品id：");
+    	   consolel.next();
+    	   System.out.println("请输入商品名称：");
+    	   consolel.next();
+    	   System.out.println("请输入商品价格：");
+    	   consolel.next();
+    	   i++;
+       }
+	}
+
+}

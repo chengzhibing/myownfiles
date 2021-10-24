@@ -1,0 +1,36 @@
+package Goods;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Scanner;
+
+public class GoodsHashMap {
+
+	public static void main(String[] args) {
+        //输入商品信息
+		Scanner consolel = new Scanner(System.in);
+		Map<String, Good> hashMap = new HashMap<>();
+        System.out.println("请输入商品信息：");
+       int i=0;
+       while(i < 3) {
+    	   System.out.println("请输入第"+i+1+"条商品信息：");
+    	   System.out.println("请输入商品id：");
+    	   String goodsId = consolel.next();
+    	   System.out.println("请输入商品名称：");
+    	   String goodsName = consolel.next();
+    	   System.out.println("请输入商品价格：");
+    	   double goodsPrice = consolel.nextDouble();
+    	   Good goods = new Good(goodsId, goodsName, goodsPrice);
+    	   hashMap.put(goodsId, goods);
+    	   i++;
+       }
+       //获取商品信息
+       Iterator<Good> iterGoods = hashMap.values().iterator();
+       while(iterGoods.hasNext()) {
+    	   Good goodsInfo = iterGoods.next();
+    	   System.out.println(goodsInfo);
+       }
+	}
+
+}

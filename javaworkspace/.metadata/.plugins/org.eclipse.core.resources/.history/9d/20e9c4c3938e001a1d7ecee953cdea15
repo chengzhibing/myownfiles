@@ -1,0 +1,13 @@
+package com.imooc.animaltest;
+
+import com.imooc.animal.Animal;
+import com.imooc.cat.Cat;
+import com.imooc.dog.Dog;
+
+public class AnimalTest {
+   Animal generateAnimal = new Animal();
+   Animal cat = new Cat();
+   Animal dog = new Dog();
+   generateAnimal.eat();
+   
+}
