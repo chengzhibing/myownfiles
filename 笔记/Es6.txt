@@ -1,0 +1,66 @@
+1、var 的缺点：
+（1）可以重复声明I(2)无法限制修改(3)没有块级作用域。
+2、let 和const 块级作用域，不能重复声明；
+let 变量是可以修改的，const常量是不可以修改的；
+let a=0; a=5;(可以) const a=0; a=5;(不可以)
+3、箭头函数show=()=>{};
+(1)圆括号当只有一个参数的时候可以省略。
+(2)只有一个return的时候可以省略；
+4、函数的参数；
+(1)function show(a,b,...args){
+	alert(a)
+	alert(b)
+	alert(args)
+}
+show(1,2,3,4,5)
+(2)let arr=[1,2,3]
+function show(a,b,c){
+	alert(a)
+	alert(b)
+	alert(c)
+}
+show(1,2,3)等价于show(...arr);
+(3)function show(a,b=12,c=15){
+	console.log(a,b,c)
+}
+show(99);
+输出结果为：99,12,15
+(4)function show(a,b=12,c=15){
+	console.log(a,b,c);
+}
+show(1,2,3);
+输出结果为1,2,3
+5、解构赋值：
+(1)左右两边结构必须一样。
+(2)右边必须是个东西。
+(3)声明和赋值不能分开（必须在一句话里完成）
+let [a,b,c]=[1,2,3]
+console.log(a,b,c)
+let {a,b,c}={a:12,b,:5,c:12}
+console.log(a,b,c);
+6、数组。
+map(映射),reduce(汇总),filter(过滤器),forEach(迭代);
+(1)let arr=[12,2,3]
+let result=arr.map(item=>itme*3)
+console.log(arr)
+(2)let arr = [12,69,31,8760]
+let result = arr.reduce(function(tmp,item,index){
+	return tmp+item;
+})
+alert(result)(为数组里面的值加起来的总和)
+利用reduce求平均数
+let arr=[12,13,17,892,13]
+let result=arr.reduce(function(tmp,item,index){
+	if(index!=arr.length-1){
+        return tmp+item; 
+	}else{
+        return (tmp+item)/arr.length;
+	}
+(3)let arr=[11,3562];
+})
+
+
+
+
+
+}
