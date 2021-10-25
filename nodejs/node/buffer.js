@@ -1,7 +1,7 @@
 //创建Buffer类；
-// var buffer=new Buffer([10,3,4,5,6,7,78,3,3,565]);
-// var buffer = new Buffer("www.runoob.com", "utf-8");
-// console.log(buffer);
+// var buffer=Buffer.alloc(2, "he");
+var buffer = new Buffer("www.runoob.com", "utf-8");
+console.log(buffer.toString());
 
 
 
