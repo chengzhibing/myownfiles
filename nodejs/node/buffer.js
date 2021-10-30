@@ -1,10 +1,19 @@
 //创建Buffer类；
 // var buffer=Buffer.alloc(2, "he");
-var buffer = new Buffer("www.runoob.com", "utf-8");
-console.log(buffer.toString());
+// var buffer = new Buffer("www.runoob.com", "utf-8");
+// console.log(buffer.toString());
+//创建一个长度为10，默认值为0的数组
+const buf1 = Buffer.alloc(10);
+//创建一个长度为10，值为17的数组
+const buf2 = Buffer.alloc(10, 18);
+//allocUnsafe比alloc更快，但是allocUnsafe可能存在旧的数据，可以用fill初始化。
+const buf3 = Buffer.allocUnsafe(10)
+console.log(buf2)
 
-
-
+const buf11 = new ArrayBuffer(10); //长度为10
+console.log(buf11)
+const buf21 = new Uint16Array(buf11) //长度为10的数组，数字中的每个元素的长度为2个字节。
+console.log(buf21)
 //写入缓存区，返回字符的长度
 // var buffer=new Buffer(256);
 // len=buffer.write('www.baidu.com');
