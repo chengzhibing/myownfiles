@@ -60,3 +60,5 @@
 // // true
 // util.isError({ name: 'Error', message: 'an error occurred' })
 // // false
+
+console.log(process.env)
