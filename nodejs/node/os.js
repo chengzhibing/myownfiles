@@ -17,8 +17,8 @@ var path=require('path');
 var pnormal=path.normalize("http//www.baidu.com");//规范化路径
 var pjion=path.join('http','//','www.baidu.com');//连接路径该方法的主要用途在于，会正确使用当前系统的路径分隔符，Unix系统是"/"，Windows系统是"\"
 var presolve=path.resolve('www.baidu.com', 'buffer.js');//将后面的参数解析为绝对路径。第一个参数可以shenglue；
-var isAbsolute=path.isAbsolute('/js/ineex.js');
-var pr=path.relative('../js/come.js', '/js/home.js');//用于将相对路径转为绝对路径。
+var isAbsolute=path.isAbsolute('/js/ineex.js')
+var pr=path.relative('../js/come.js', '/js/home.js');//一个路径跳转到另外一个路径的方式
 
 // 格式化路径
 console.log('normalization : ' + path.normalize('/test/test1//2slashes/1slash/tab/..'));

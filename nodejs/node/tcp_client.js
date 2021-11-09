@@ -47,8 +47,8 @@ var connectionListener = function (conn) {
             console.log('connect to server')
 
         })
-        socketConnection.on("error", function () { //错误事件
-            console.log("Error in connection:", err)
+        socketConnection.on("error", function (err) { //错误事件
+            console.log("Error in connection:", err.message)
         })
         socketConnection.on("close", function () { //连接关闭之后重新连接
             if( !quiting) {
@@ -57,8 +57,9 @@ var connectionListener = function (conn) {
             }
             
         })
-        socketConnection.pipe(process.stdout, {end: false});
-        // process.stdin.pipe(socketConnection)
+        // process.stdin.pipe(socketConnection) //将进程的输入（用户输入的数据传输到服务器）删除的原因是当用户输入quit的时候向服务器发送数据
+        socketConnection.pipe(process.stdout); //将服务器发送的数据在进程中打印出来
+        
     }())
 
 //写入的数据可以是字符串（可以为其指定编码格式），也可以是未经处理的缓冲区
