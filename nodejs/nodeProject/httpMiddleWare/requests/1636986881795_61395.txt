@@ -1,0 +1,12 @@
+GET /index.html
+{
+  host: 'localhost:9090',
+  connection: 'keep-alive',
+  'cache-control': 'max-age=0',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'accept-encoding': 'gzip, deflate, br',
+  'accept-language': 'zh-CN,zh;q=0.9',
+  cookie: 'BMAP_SECKEY2=f9f79708cee92bc7e00987dacd109f5e8bdf803dd32eba75454d4f8c59e3f04ca3a942c563a378b29717b5117c53098db34e2a8eb73f0f402cd2131f6ccf34e99ba302632c45ed22664ced490ab45aa372f4af807a83463c8b776abd2186bf04a8bfa18f7f0604997e5d9048e212fa0e6e5733db228bdfcb5378752455be1edc9e40c9d7858a27ebeae55e7832d5d66d435a176bd6e8b1a8d7e471b35c868894c0b2427397664b70e4f3e6b126abc704edef41d2a879fbaeffa38502f56fc69c2e8298fc3494899283e8cae8f6a49f5f27921acfbff96461d486f6ed937798bfadf697788ed207b75f3143c82f4aa67d; SECKEY_CID2=d4bd94a592b1847e5170d5cb2e6d4afa42b3bebc'
+}
