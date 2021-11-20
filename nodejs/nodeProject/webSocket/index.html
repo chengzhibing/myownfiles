@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input{
+          width: 200px;
+        }
+        #message{
+            position: fixed;
+            top:40px;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            border: 1px solid #eeeeee;
+            padding: 8px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>Your message:</div>
+    <div>
+        <input type="text" id="input">
+    </div>
+    <div id="message">
+
+    </div>
+</body>
+<script src="http://localhost:4040/socket.io/socket.io.js">
+    
+</script>
+<script type="text/javascript">
+    var messageElement = document.getElementById("message")
+    var lastMessageElement = null;
+    let username = "";
+    function addMessage(message) {
+        var newMessageElement = document.createElement("div");
+        var newMessageText = document.createTextNode(message);
+        newMessageElement.appendChild(newMessageText);
+        messageElement.insertBefore(newMessageElement, lastMessageElement)
+        lastMessageElement = newMessageElement;
+    }
+    var socket = io.connect("http://localhost:4040"); //客户端连接后台服务器
+    socket.on("serverMessage", function(content) { //客户端监听服务器端的事件
+        addMessage(content); //服务器端发送的消息添加到dom中
+    })
+    socket.on("login", function() {
+        username = prompt("What username would you like to use?")
+        socket.emit('login', username)
+    })
+    var inputElement = document.getElementById("input");
+    inputElement.onkeydown = function(keyboardEvent) {
+        if(keyboardEvent.keyCode === 13) {
+            socket.emit("clientMessage", inputElement.value);
+            socket.emit("clientUsername", username)
+            inputElement.value = "";
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+</html>
