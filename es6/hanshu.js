@@ -8,4 +8,4 @@ function add(a, b = "b") {
   console.log(a === arguments[0])
   console.log(b === arguments[1])
 }
-add("a", undefined)
+add("a", "oo")
