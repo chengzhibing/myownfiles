@@ -12,7 +12,7 @@ https://www.jianshu.com/p/71113f0c451c
 4、Sublime Text 3常用插件安装（持续更新）
    http://www.cnblogs.com/coderls/p/5894697.html
 5、vue笔记
-   http://www.cnblogs.com/libin-1/p/6196131.html
+  http://www.cnblogs.com/libin-1/p/6196131.html
 6、Vue.js 快速入门
    http://www.cnblogs.com/zhengjialux/p/5871980.html
 7、博客园持续更新新技术
@@ -102,4 +102,7 @@ https://sourceforge.net/projects/gnuwin32/
 17.?dedeCMS织梦视频 链接: https://pan.baidu.com/s/1bpQBCbP 密码: ikns
 18.?ThinkPHP视频教程 链接: https://pan.baidu.com/s/1ggiKvYV 密码: 7p5h
 19.?案例和总结?链接: https://pan.baidu.com/s/1eTSNB5C 密码: 5rx7
-20.?天猫商城购物车实战?链接: https://pan.baidu.com/s/1smVjb7v 密码: cu4c
+20.?天猫商城购物车实战?链接: https://pan.baidu.com/s/1smVjb7v 密码: cu4
+
+
+
