@@ -7,5 +7,7 @@ function add(a, b = "b") {
   b = 20;
   console.log(a === arguments[0])
   console.log(b === arguments[1])
+  console.log(arguments[0])
+  console.log(arguments[1])
 }
 add("a", "oo")
