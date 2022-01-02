@@ -1,5 +1,2 @@
-let arr = [13, 15, 10];
-const mm = arr.map((item) => {
-  return item > 12;
-}) 
-console.log(mm)
+let str = "?123"
+console.log(str.slice(str.indexOf("?")+1))

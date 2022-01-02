@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from "react";
 import "./TodoList.css"
+import TodoListItem from "./TodoLisItem"
 export default class TodoList extends Component{
   constructor(props) {
     super(props)
@@ -12,8 +13,8 @@ export default class TodoList extends Component{
     this.listItemClick = this.listItemClick.bind(this);
   }
   getListItems() {//将循环渲染的逻辑单独放置到方法中
-      return this.state.list.map((item) => { //dangerouslySetInnerHTML必须是最底层标签
-      return <li key={item.id} onClick={this.listItemClick} dangerouslySetInnerHTML={{__html: item.name}}></li>
+      return this.state.list.map((item) => { //dangerouslySetInnerHTML必须是最底层标签，传递给子组件的方法名，实际为父组件的listItemClick的方法。
+      return <TodoListItem key={item.id} item={item} deleteItem = {this.listItemClick}/>
     })
   }
   inputChange(e) { //e.target.value，对应客户输入的值

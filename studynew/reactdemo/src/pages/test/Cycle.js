@@ -2,53 +2,45 @@ import React, {Component} from "react";
 
 class Bicycle extends Component{
     constructor(props) {
-        super();
-        console.log(props)
+        super(props);
         this.state = {
-            counter: props.counter,
-            arr: []
+            counter: 0
         }
         this.changeNumber = this.changeNumber.bind(this)
     }
     changeNumber() {
-      this.setState((preState) => {
-        preState.counter += 1;
-        console.log(this.state.counter)
-      })
-      this.setState((preState) => {
-        preState.arr.push(this.state.counter)
-      })
+       this.setState((preState) => {
+         return {
+           counter: preState.counter  += 1
+         }
+       })
     }
-    // static getDerivedStateFromProps(nextPorps, preState) {
-    //    return null;
-    // }
-    // getSnapshotBeforeUpdate(preProps, preState) {
-    //     console.log(preProps, "更新状态之前")
-    //     console.log(preState, "更新状态之前")
-    //     console.log("更新状态之前，getSnapshotBeforeUpdate")
-    // }
-    // componentWillMount() {
-    //     console.log("挂载到dom之前，componentWillMount")
-    // }
+    componentWillMount() {
+      console.log("子组件挂载到DOM之前，componentWillMount")
+      
+    }
     componentDidMount() {
-        console.log("挂载到dom之后，componentDidMount")
+        console.log("子组件挂载到dom之后，componentDidMount")
+    }
+    shouldComponentUpdate() {
+      console.log("子组件组件是否需要更新,shouldComponentUpdate")
+      return true;
+    }
+    componentWillUpdate() {
+      console.log("子组件将要更新componentWillUpdate")
     }
     componentDidUpdate() {
-        console.log("更新之后，componentDidUpdate")
+        console.log("子组件更新之后，componentDidUpdate")
     }
-    // componentWillUpdate() {
-    //     console.log("更新之前，componentWillMount")
-    // }
     componentWillReceiveProps(nextPorps) {
-      console.log("componentWillReceiveProps", nextPorps)
+      console.log("componentWillReceiveProps，子组件--------------")
     }
     render() {
-        const _this = this;
+      console.log("子组件的render")
       return <div >
-          <div><button onClick={_this.changeNumber}>子组件点击</button></div>
-          {_this.state.arr.map(() => {
-            return <div>{_this.state.counter}</div>
-          })}
+          <div><button onClick={this.changeNumber}>子组件点击</button></div>
+          <div>子组件本身的数据：{this.state.counter}</div>
+          <div>来自父组件的数据：{this.props.number}</div>
         </div>
     }
 }
