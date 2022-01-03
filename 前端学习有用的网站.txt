@@ -106,4 +106,6 @@ https://sourceforge.net/projects/gnuwin32/
 
 三、培训
 1、Ant Design组件库的官网：https://ant.design/index-cn
+2、todomvc.com 企业技术选型用的，同一个功能用不同的框架实现
+3、https://reactrouter.com/docs/en/v6/getting-started/installation react路由
 
