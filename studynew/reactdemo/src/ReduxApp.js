@@ -15,7 +15,7 @@ function ReduxApp() {
         <div className="ReduxApp">
             <button onClick={() => { dispatch(increament({step: 1})) }}>{count}</button>
             <hr />
-            <button onClick={() => { dispatch(increament({ step: 1 })) }}>{count}</button>
+            <button onClick={() => { dispatch(asyncIncreament({ step: 1 })) }}>{count}</button>
         </div>
     )
 }

@@ -17,6 +17,7 @@ export const counterSlice = createSlice({ // 调用此函数会返回一个reduc
       }
     }
 })
+// export const {initialState: countState} =  counterSlice.initialState;
 //导出actions
 export const {increament, decreament} = counterSlice.actions;
 //内置了thunk插件，可以直接处理异步请求
