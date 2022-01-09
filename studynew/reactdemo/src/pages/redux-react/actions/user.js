@@ -1,5 +1,6 @@
 import {LOGIN, LOGOUT, UPDATEUSERINFO} from "../contains/user.js"
 const loginRequest = ()=> {
+    console.log("正在登录？？？、")
     return new Promise((resolve)=> {
         setTimeout(()=> {
             resolve(updateuserinfo({

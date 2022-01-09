@@ -2,6 +2,7 @@ import {LOGIN, LOGOUT, UPDATEUSERINFO} from "../contains/user.js"
 import * as loginActions from "../actions/user.js";
 
 export default function(state = {}, actions) {
+    console.log(state)
     console.log(actions.payload)
    switch(actions.type) {
        case LOGIN: {

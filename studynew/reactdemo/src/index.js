@@ -1,23 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from "react-redux";
-import counterStore from "./pages/redux/store/storeIndex.js"
-
-
-import ReduxApp from "./ReduxApp"
+// import {Provider} from "react-redux";
+// // import counterStore from "./pages/redux/store/storeIndex.js"
+// import userStore  from "./pages/redux-react/store/index"
+// import ReduxUseReducerApp from "./ReduxUseReducerApp"
 import './index.css';
+// import HookApp from "./pages/hooks/HookApp"
+import {CreateProvide} from "./pages/useContextAndUseReducer/UseContextApp"
+
+import ChildTest1 from "./pages/useContextAndUseReducer/ChildTest1"
+import ChildTest2 from "./pages/useContextAndUseReducer/ChildTest2"
+import UseMemoApp from "./pages/useMemo/UseMemoApp"
 // import {BrowserRouter} from "react-router-dom"
 // import App from "./App"
 // import "antd/dist/antd.css"
-const store =counterStore({
+// const store =counterStore({
   
-})
+// })
 // import ProjectTestApp from "./ProjectTestApp"
-
+// const store = userStore({
+//   user: {
+//     nickName: "张张张",
+//     loading: false,
+//     isLogin: false
+//   }
+// })
 ReactDOM.render(
-  <Provider store={store}>
-    <ReduxApp/>
-  </Provider>,
+  <div>
+   {/* <CreateProvide>
+     <ChildTest1/>
+     <ChildTest2/>
+  </CreateProvide> */}
+  <UseMemoApp/>
+  </div>,
   document.getElementById('root')
 );
 
