@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 // import userStore  from "./pages/redux-react/store/index"
 // import ReduxUseReducerApp from "./ReduxUseReducerApp"
 import './index.css';
+import MobxApp from "./pages/mobx/MobxApp"
 // import HookApp from "./pages/hooks/HookApp"
-import {CreateProvide} from "./pages/useContextAndUseReducer/UseContextApp"
+// import {CreateProvide} from "./pages/useContextAndUseReducer/UseContextApp"
 
-import ChildTest1 from "./pages/useContextAndUseReducer/ChildTest1"
-import ChildTest2 from "./pages/useContextAndUseReducer/ChildTest2"
-import UseMemoApp from "./pages/useMemo/UseMemoApp"
+// import ChildTest1 from "./pages/useContextAndUseReducer/ChildTest1"
+// import ChildTest2 from "./pages/useContextAndUseReducer/ChildTest2"
+// import UseMemoApp from "./pages/useMemo/UseMemoApp"
 // import {BrowserRouter} from "react-router-dom"
 // import App from "./App"
 // import "antd/dist/antd.css"
@@ -31,7 +32,7 @@ ReactDOM.render(
      <ChildTest1/>
      <ChildTest2/>
   </CreateProvide> */}
-  <UseMemoApp/>
+  <MobxApp/>
   </div>,
   document.getElementById('root')
 );

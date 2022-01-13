@@ -1,9 +1,20 @@
 const obj = {
-    name: "张"
+    name: "zhang"
 }
-function getObj(obj) {
-    console.log(obj)
-    obj.name = "程"
-}(obj)
-
-console.log(obj)
+const proxy = new Proxy(obj, {
+    get(target, key, proxy) {
+        console.log("获取属性值")
+        return target[key];
+    },
+    set(target, key, value, proxy) {
+       target[key] = value;
+       return true;
+    },
+    has(target,key) {
+        
+    }
+})
+const mm = proxy.name;
+proxy.age = 10;
+console.log("name" in proxy)
+    "name".
