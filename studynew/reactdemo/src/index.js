@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 // import ReduxUseReducerApp from "./ReduxUseReducerApp"
 import './index.css';
 import MobxApp from "./pages/mobx/MobxApp"
+import lazy from "./pages/lazy/lazy"
+const LazyComponent = lazy(() => import ("./pages/lazy/LazyApp"))
 // import HookApp from "./pages/hooks/HookApp"
 // import {CreateProvide} from "./pages/useContextAndUseReducer/UseContextApp"
 
@@ -32,7 +34,7 @@ ReactDOM.render(
      <ChildTest1/>
      <ChildTest2/>
   </CreateProvide> */}
-  <MobxApp/>
+  <LazyComponent/>
   </div>,
   document.getElementById('root')
 );
