@@ -1,6 +1,6 @@
 import React, { Component, useRef } from "react"
 
-
+////////22222222
 class Form extends Component {
   state = {
     formData: {}
@@ -33,6 +33,7 @@ class Form extends Component {
   }
   render() {
     const {children} = this.props;
+    console.log(children)
     const renderChildren = [];
     React.Children.forEach(children, (child) => {
       if(child.type.displayName==="formItem") {
@@ -50,8 +51,11 @@ class Form extends Component {
   }
 }
 
+////////33333333
 function FormItem(props) {
-  const {children, name, handleChange, value, label} = props;
+  const {children, name, handleChange, value, label} = props
+  console.log(props)
+  console.log(children)
   const onChange = (value) => {
     handleChange(name, value)
   }
@@ -59,24 +63,25 @@ function FormItem(props) {
     <span className="label">{label}:</span>
      {
        React.isValidElement(children) && children.type.displayName === "input" ?
-       React.cloneElement(children, {onChange, value}): null
+       React.cloneElement(children, {onChange, value}) : null
      }
   </div>
 }
 FormItem.displayName = 'formItem'
 
-/* Input 组件, 负责回传value值 */
+////////44444444
 function Input({ onChange , value }){
   return  <input className="input"  onChange={ (e)=>( onChange && onChange(e.target.value) ) } value={value}  />
 }
 /* 给Component 增加标签 */
 Input.displayName = 'input';
 
+////////11111111
 export default () => {
   const form = useRef(null)
   const submit = () => {
-    form.current.submitForm(() => {
-      console.log(form.value)
+    form.current.submitForm((formValue) => {
+      console.log(formValue)
     })
   }
   const reset = () => {
