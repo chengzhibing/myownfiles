@@ -1,1 +1,1 @@
-console.log("你好呀呀呀呀呀")
+console.log("Hello, this is myDemo index")

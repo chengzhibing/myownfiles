@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import JsxApp from './JsxApp';
 // import {UseStateApp} from './UseStateApp';
-import PropsFormApp from './RefYunaliApp';
+import PropsFormApp from './HOCRenderJieChiApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

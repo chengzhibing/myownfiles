@@ -1,2 +1,9 @@
-let str = "?123"
-console.log(str.slice(str.indexOf("?")+1))
+function  Name() {
+    
+}
+
+const name = new Name();
+console.log(Name)
+console.log(name.__proto__  === Name.prototype)
+console.log(Name.__proto__ === Object.prototype) 
+console.log(Object.prototype)

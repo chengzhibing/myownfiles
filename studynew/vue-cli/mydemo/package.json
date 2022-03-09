@@ -1,9 +1,10 @@
 {
-  "name": "MyDemo",
+  "name": "myDemo",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "MyCli"
+    "build": "dd",
+    "clean": "dd clean"
   }
 }

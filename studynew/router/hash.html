@@ -1,77 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hash</title>
+    <title>Document</title>
     <style>
-		.wrap {
-			height: 30px;
-			width: 100%;
-			display: flex;
-			background-color: grey;
-		}
-
-		a {
-			width:20%;
-			height:100%;
-		}
-		button{
-			height:100%;
-			width:20%;
-		}
-	</style>
+        ul,li{
+            list-style: none;
+        }
+        .list_wrap{
+            height: 20px;
+            display:flex;
+            display:-webkit-flex;
+            display:-webkit-flexbox;
+            display:flexbox;
+            background-color: black;
+        }
+        .list_wrap li{
+            flex: 1;
+            -webkit-flex:1;
+            -webkit-box-flex: 1;
+            border-right: 1px solid #ccc;
+            text-align: center;
+            color:white;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="wrap">
-		<a href="#/">白色</a>
-		<a href="#/green">绿色</a>
-		<a href="#/yellow">黄色</a>
-		<a href="#/grey">灰色</a>
-	</div>
-    <script>
-        class MyRouter {
-            constructor() {
-                this.routers = {}
-                this.refresh = this.refresh.bind(this)
-                this.bindRouter = this.bindRouter.bind(this)
-                this.bindRouter()
-            }
-            push(path, cb) { //注册路由
-                this.routers[path] = cb || function () { }
-            }
-            refresh() {
-               const path = location.hash.slice(1);
-               console.log(path)
-               const cb = this.routers[path];
-               cb && cb();
-            }
-            bindRouter() {
-                window.addEventListener("load", this.refresh, false)
-                window.addEventListener("hashchange", this.refresh, false)
-            }
-
-        }
-        const changeBackgroundColor = function (color) {
-            const body = document.querySelector("body")
-            body.style.backgroundColor = color;
-        }
-        const myRouter = new MyRouter()
-        myRouter.push("/", () => {
-            changeBackgroundColor("white")
-        })
-        myRouter.push("/green", () => {
-            changeBackgroundColor("green")
-        })
-        myRouter.push("/grey", () => {
-            changeBackgroundColor("grey")
-        })
-        myRouter.push("/yellow", () => {
-            changeBackgroundColor("yellow")
-        })
-    </script>
+    <ul class="list_wrap">
+        <li><a href="#">白色</a></li>
+        <li><a href="#grey">灰色</a></li>
+        <li><a href="#green">绿色</a></li>
+        <li><a href="#red">红色</a></li>
+        <li onclick="goBback()">返回</li>
+    </ul>
 </body>
-
+<script>
+    const body = document.querySelector("body")
+    function goBback() {
+        window.history.go(-1)
+    }
+    class MyRouter {
+        constructor() {
+            this.routers = {}
+            this.changeRouter = this.changeRouter.bind(this)
+            this.setRoutes = this.setRoutes.bind(this);
+            window.addEventListener("load", this.changeRouter)
+            window.addEventListener("hashchange", this.changeRouter)
+        }
+        setRoutes(path, callback) {
+           const route = this.routers[path];
+           const pathColor = path.slice(1)
+           if(!route) {
+               this.routers[path] = callback.bind(null, pathColor) || function(pathColor) {};
+           }
+        }
+        changeRouter() {
+            console.log(location.hash)
+           const path = `/${location.hash.slice(1)}`
+           const cb = this.routers[path];
+           cb&&cb();
+        }
+    }
+    function changeBodyBackGround(pathOfColor) {
+        console.log(pathOfColor)
+        if(!pathOfColor) {
+            body.style.backgroundColor = "white";
+            return;
+        }
+        body.style.backgroundColor=pathOfColor;
+    }
+    const Router = new MyRouter();
+    Router.setRoutes("/",(path) => {
+        changeBodyBackGround(path);
+    })
+    Router.setRoutes("/grey", (path) => {
+        changeBodyBackGround(path);
+    })
+    Router.setRoutes("/green", (path) => {
+        changeBodyBackGround(path);
+    })
+    Router.setRoutes("/red", (path) => {
+        changeBodyBackGround(path);
+    })
+</script>
 </html>
