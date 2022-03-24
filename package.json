@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "dva-cli": "^0.10.1"
+    "dva-cli": "^0.10.1",
+    "vue-server-renderer": "^2.6.14"
   }
 }

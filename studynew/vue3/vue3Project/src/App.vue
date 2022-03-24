@@ -2,15 +2,15 @@
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
     
-    <HelloWorld msg="Hello Vue 3.0 + Vite"/>
+    <!-- <HelloWorld msg="Hello Vue 3.0 + Vite"/> -->
     <!-- <input v-focus/> -->
     <!-- <InjectAndProvide /> -->
-    <Hooks/>
+    <Hooks name="zhang" @change="onChanges">
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 // import RefContent from "./components/RefContent.vue"
 import Hooks from "./components/Hooks.vue"
 // import InjectAndProvide from "./components/InjectAndProvide.vue"
@@ -24,8 +24,13 @@ export default {
       }
     }
   },
+  setup() {
+    const onChanges = ()=> {
+      console.log("pppppp")
+    }
+    return {onChanges}
+  },
   components: {
-    HelloWorld,
     Hooks
     // InjectAndProvide
   }

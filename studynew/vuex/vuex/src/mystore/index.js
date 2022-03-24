@@ -1,82 +1,42 @@
+import Vuex from "./myVuex"
 import Vue from "vue"
-import vuex from "./vuexnew.js"
-Vue.use(vuex) //使用插件，默认去调用插件库的install方法。
-console.log(vuex)
-export default new vuex.Store({
+Vue.use(Vuex)
+
+export default new Vuex.Store({
 	state: {
-		hello: 'Hello World',
 		age: 10
 	},
 	mutations: {
-		miniusAge(state, payload) {
-			state.age -= payload;
-		},
-		changeAge(state, payload) {
-			state.age += payload;
+      changeAgeOfMutations(state, payload) {
+        state.age += payload;
+	  },
+	  minusAgeOfMutations(state, payload) {
+        state.age -= payload;
+	  }
+	},
+	actions: {
+		minusAgeOfAction({commit}, payload) {
+           commit("minusAgeOfMutations", payload)
 		}
 	},
 	getters: {
-		getAge(state) {
-			console.log(state)
-			return state.age + 10;
-		}
-	},
-	actions: {
-		minusAsync({ commit, dispatch }, payload) {
-			setTimeout(() => {
-				commit("miniusAge", payload)
-			})
+		age(state) {
+			return state.age * 20;
 		}
 	},
 	modules: {
-		a: {
-			state: {
-				x: 12
-			},
-			mutations: {
-				miniusAge() {
-					console.log("第二次走")
-				}
-			},
-			modules: {
-				c: {
-					state: {
-						z: 15
-					},
-					modules: {
-						d: {
-							state: {
-								w: 20
-							}
-						}
-					}
-				}
-			}
+		state: {
+			name: "子组件的state"
 		},
-		b: {
-			state: {
-				y: 13
-			}
+		mutations: {
+			
+		},
+		actions: {
+
+		},
+		modules: {
+
 		}
 	}
 })
-
-
-// const root = {
-// 	_raw: rawModule,
-// 	state: {
-// 		age: 10
-// 	},
-// 	_children: {
-// 		a: {
-// 			_raw: rawModule,
-// 			state: {x: 12},
-// 		    _children: {}
-// 		},
-// 		b: {
-// 			_raw: rawModule,
-// 			state: {y: 10},
-// 		    _children: {}
-// 		}
-// 	}
-// }
+console.log()

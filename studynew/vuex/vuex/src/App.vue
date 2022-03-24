@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-   {{this.$store.state.hello}}
-   {{this.$store.getters.getAge}}
    <br>
    <button @click="addAge">点击年龄增加10</button>
    <button @click="minusAge">点击年龄减少10</button>
+   <div>{{age}}</div>
   </div>
 </template>
 
@@ -13,19 +12,29 @@
 <script>
 export default {
   name: 'app',
+  data() {
+    return {
+    }
+  },
   created() {
-    setTimeout(()=> {
-      // console.log(this.$store)
-      this.$store.state.age = 30;
-    }, 1000)
+    console.log(this.$options)
+  },
+  computed: {
+    age() {
+      return this.$store.state.age;
+    }
   },
   methods:{
     addAge() {
-      this.$store.commit("changeAge",10)
+      this.$store.commit("changeAgeOfMutations", 10)
+      console.log(this.$store)
     },
     minusAge() {
-      this.$store.dispatch("minusAsync", 10)
+      this.$store.dispatch("minusAgeOfAction", 10)
     }
+  },
+  mounted() {
+   this.age = this.$store.state.age;
   }
 }
 </script>
