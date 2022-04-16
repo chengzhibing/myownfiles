@@ -17,7 +17,7 @@ const proxy = new Proxy(initData,{
 // initData.value = 10; //不会触发set函数
 // console.log(initData.value) // 10
 // console.log(proxy.value) //10 触发get函数。
-proxy.value = 20; //触发set函数
-// proxy.aa = 30; //触发set函数
-initData.aa = 40; //不会触发set函数
-console.log(proxy.aa) //触发get函数
+// proxy.value = 20; //触发set函数
+proxy.aa = 30; //触发set函数
+// initData.aa = 40; //不会触发set函数
+console.log(initData.aa) //触发get函数

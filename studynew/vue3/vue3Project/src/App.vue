@@ -7,6 +7,7 @@
     <!-- <input v-focus/> -->
     <!-- <InjectAndProvide /> -->
     <!-- <Hooks name="zhang" @change="onChanges"> -->
+      <button @click="clickToAdd">增加</button>
       <SetUp/>
   </div>
 </template>
@@ -17,14 +18,21 @@
 // import RefContent from "./components/RefContent.vue"
 // import SetUp from "./components/SetUp.vue"
 // import InjectAndProvide from "./components/InjectAndProvide.vue"
-import {ref, effect} from "vue"
+import {ref, effect, toRaw} from "vue"
 export default {
   name: 'App',
   setup() {
-    // const ref = ref(0)
+    const refData = ref(0);
+    const refToRaw = toRaw(refData)
+    console.log(ref)
+    console.log(refToRaw.value)
     effect(() => {
-      console.log("Ppppp")
+      console.log(refData.value)
     })
+    const clickToAdd = function() {
+      refData.value++;
+    }
+    return {ref, clickToAdd}
   }
 }
 </script>
