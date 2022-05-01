@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    const Ctx = React.createContext()
+    class App extends React.Component{
+        state = {
+            name: "zhang"
+        }
+        render() {
+            return<Ctx.Provider value={this.state}>
+               <Brother/>
+            </Ctx.Provider>
+        }
+    }
+
+   
+    class Brother extends React.Component{
+        render() {
+            return<div>
+               <Son/>
+        </div>
+        }
+    }
+    class Son extends React.Component{
+       static contextType = Ctx;
+       render() {
+        console.log(this.context)
+         return <div>
+            {this.context.name}
+         </div>
+       }
+    }
+   
+    ReactDOM.render(<App/>, document.querySelector("#root"))
+</script>
+</html>

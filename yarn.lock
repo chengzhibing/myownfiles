@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@babel/standalone@^7.17.11":
+  "integrity" "sha512-47wVYBeTktYHwtzlFuK7qqV/H5X6mU4MUNqpQ9iiJOqnP8rWL0eX0GWLKRsv8D8suYzhuS1K/dtwgGr+26U7Gg=="
+  "resolved" "https://registry.npmmirror.com/@babel/standalone/-/standalone-7.17.11.tgz"
+  "version" "7.17.11"
+
 "acorn@^5.2.1":
   "integrity" "sha1-Po2KmUfQWZoXltECJddDL0pKz14="
   "resolved" "https://registry.npmmirror.com/acorn/download/acorn-5.7.4.tgz"
@@ -865,6 +870,11 @@
   dependencies:
     "core-js" "^2.4.0"
     "regenerator-runtime" "^0.11.0"
+
+"babel-standalone@^6.26.0":
+  "integrity" "sha512-zT4CJM9TK6uEaPf7+nKVO/yPYNlk5G9Aa4+iYwmn7J4D9eezb62eQ3bSUybK/AcPHU2VkfFuIDKbvwQOOj+Zyw=="
+  "resolved" "https://registry.npmmirror.com/babel-standalone/-/babel-standalone-6.26.0.tgz"
+  "version" "6.26.0"
 
 "babel-template@^6.24.1", "babel-template@^6.26.0":
   "integrity" "sha1-3gPi0WOWsGn0bdn/+FIfsaDjXgI="
