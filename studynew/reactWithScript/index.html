@@ -14,29 +14,75 @@
 	<div id="root"></div>
 </body>
 <script type="text/babel">
-	const {useRef,forwardRef, useImperativeHandle} = React;
-	const Hello = forwardRef((props, ref)=> {
-		useImperativeHandle(ref, () => {
-			return {
-				a: 1,
-				ref
-			}
-		}, [])
-		return <div>hello</div>
-	})
+	// const { useState, useEffect, useCallback} = React;
+	// const App = () => {
+	// 	const [count, setCount] = useState(0)
+	// 	const [list, setList] = useState([{id: "1", name:"任务一"}, {id:"2", name: "任务二"}])
+	// 	const increament = () => {
+	// 		setCount((count) => {return count + 1})
+	// 	}
+	// 	const render = () => {
+	// 		console.log("渲染list")
+	// 		const randerList = list.map((item) => (<li key={item.id}>{item.name}</li>)) || [];
+	// 		return randerList;
+	// 	}
+	// 	const memoryHandle = useCallback(() => {
+	// 		return render()
+	// 	}, [list])
+	// 	const handle = () => {
+	// 		return render()
+	// 	}
+	// 	return <div>
+	// 		<button onClick={increament}>改变</button><br/>
+	// 		{count}
+	// 		<Hello memoryHandle = {memoryHandle} handle = {handle}/>
+	// 	</div>
+	// }
+	// const Hello = React.memo((props) => {
+	// 	useEffect(() => {
+	// 		console.log("不会重新渲染")
+	// 	}, [props.memoryHandle])
+	// 	useEffect(() => {
+	// 		console.log("会重新渲染")
+	// 	}, [props.handle])
+	// 	return <React.Fragment>
+	// 	<ul>
+	// 	 {props.memoryHandle()}
+	// 	</ul>
+	// 	</React.Fragment>
+	// })
+	function useWindowSize() {
+		// Initialize state with undefined width/height so server and client renders match
+		// Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+		const [windowSize, setWindowSize] = useState({
+			width: undefined,
+			height: undefined,
+		});
 
-	const App = ()=> {
-		const pRef = useRef(null);
-		const getP = () => {
-			console.log(pRef) //pRef是一個對象{current: p}
-		}
-    return<div>
-		  <button onClick={getP}>獲取P</button>
-		  <Hello ref = {pRef}/>
-		</div>
+		useEffect(() => {
+			// Handler to call on window resize
+			function handleResize() {
+				// Set window width/height to state
+				setWindowSize({
+					width: window.innerWidth,
+					height: window.innerHeight,
+				});
+			}
+
+			// Add event listener
+			window.addEventListener("resize", handleResize);
+
+			// Call handler right away so state gets updated with initial window size
+			handleResize();
+
+			// Remove event listener on cleanup
+			return () => window.removeEventListener("resize", handleResize);
+		}, []); // Empty array ensures that effect is only run on mount
+
+		return windowSize;
 	}
 
-	
+
 	ReactDOM.render(<App />, document.querySelector("#root"))
 </script>
 

@@ -1,19 +1,19 @@
-import './App.css';
+// import './App.css';
 import React, {Component} from "react";
-import {Routes, Route} from "react-router-dom"
-import ButtonRouter from "./pages/router/ButtonRouter"
-import ListRouter from "./pages/router/ListRouter"
-import AxiosTest from "./pages/ajax/AxiosTest"
+import styles from "./App.moudle.css"
+// import {Routes, Route} from "react-router-dom"
+// import ButtonRouter from "./pages/router/ButtonRouter"
+// import ListRouter from "./pages/router/ListRouter"
+// import AxiosTest from "./pages/ajax/AxiosTest"
 class App extends Component{
   render() {
-    console.log("父组件的render")
     return (
-        <div>
+        <div className={styles.box}>
           {/* <AxiosTest/> */}
-          <Routes>
+          {/* <Routes>
             <Route path="/button" element={<ButtonRouter/>}/>
             <Route path="/list/:id" element = {<ListRouter/>}/>
-          </Routes>
+          </Routes> */}
         </div>
       
       )

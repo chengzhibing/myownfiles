@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 // import userStore  from "./pages/redux-react/store/index"
 // import ReduxUseReducerApp from "./ReduxUseReducerApp"
 import './index.css';
+import App from "./App"
 import MobxApp from "./pages/mobx/MobxApp"
 import lazy from "./pages/lazy/lazy"
 const LazyComponent = lazy(() => import ("./pages/lazy/LazyApp"))
@@ -15,7 +16,7 @@ const LazyComponent = lazy(() => import ("./pages/lazy/LazyApp"))
 // import ChildTest2 from "./pages/useContextAndUseReducer/ChildTest2"
 // import UseMemoApp from "./pages/useMemo/UseMemoApp"
 // import {BrowserRouter} from "react-router-dom"
-// import App from "./App"
+
 // import "antd/dist/antd.css"
 // const store =counterStore({
   
@@ -34,7 +35,9 @@ ReactDOM.render(
      <ChildTest1/>
      <ChildTest2/>
   </CreateProvide> */}
-  <LazyComponent/>
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>
   </div>,
   document.getElementById('root')
 );
