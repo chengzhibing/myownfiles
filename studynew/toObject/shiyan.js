@@ -1,8 +1,17 @@
-function Course() {
-    const _isClass = this instanceof Course;
-    if(!_isClass) {
-        return new Course();
-    }
-    this.name = "";
+function Obj() {
+
+
 }
-console.log(Course())
+
+Obj.getInstance = function () {
+  console.log(this)
+  let instance = null;
+  return function () {
+    console.log(this)
+    if (!instance) {
+      instance = new Obj()
+    }
+    return instance;
+  }
+}()
+console.log(Obj.getInstance() === Obj.getInstance())

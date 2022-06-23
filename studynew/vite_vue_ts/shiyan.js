@@ -1,3 +1,4 @@
-for(let i = 0; i < 100; i++) {
-    console.log("00000")
+function da(person) {
+    return person.bname + '';
 }
+console.log(da({ bname: 'zang' }));

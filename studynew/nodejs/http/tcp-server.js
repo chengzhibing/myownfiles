@@ -1,20 +1,17 @@
-const net = require("net");
-const host = "127.0.0.1";
-const port = "9999"
-// 创建⼀个TCP服务器实例，调⽤listen函数开始监听指定端⼝
-// net.createServer()有⼀个参数, 是监听连接建⽴的回调
-net.createServer((socket) => {
-    const remoteName = `${socket.remoteAddress}:${socket.remotePort}`;
-    // 建⽴成功了⼀个连接, 这个回调函数⾥返回⼀个socket对象.
-    console.log(`${remoteName}连接到本服务器`)
-    //接受消息
-    socket.on("data", (data) => {
-        console.log(`${remoteName} - ${data}`)
-        //给客户端发送消息
-        socket.write(`接受到了客户端发送过来的数据，${data}`)
+const net = require("net")
+const server = net.createServer(function (socket) {
+    socket.on("data", function () {
+        socket.write("server data to telnet client")
+        console.log("hello 已连接")
     })
-    socket.on("close", () => {
-        console.log(`${remoteName}断开了连接`)
+    socket.on("end", function () {
+        socket.write("服务器写写入数据完毕")
     })
-}).listen(port, host)
-console.log("server is running on" + `${host}:${port}`)
+    socket.write("fu wu qi de shuju")
+})
+server.listen(8000, function () {
+    console.log("server is running on 127.0.0.1:8000")
+})
+// server.close(function () {
+//     console.log("连接已经关闭")
+// })
