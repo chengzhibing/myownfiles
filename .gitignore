@@ -1,0 +1,10 @@
+node_modules/
+*/node_modules/
+*/*/node_modules/
+*/*/*/node_modules/
+*/*/*/*/node_modules/
+.idea
+build/
+.vscode/
+package-lock.json
+yarn-error.log
