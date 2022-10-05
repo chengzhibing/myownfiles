@@ -1,7 +1,10 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import ChildToChildOne from './components/ChildToChildOne.vue';
+import ChildToChildTwoVue from './components/ChildToChildTwo.vue';
+import ChildToChildTwo from './components/ChildToChildTwo.vue';
 </script>
 
 <template>
@@ -13,7 +16,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
+  <ChildToChildOne/>
+  <ChildToChildTwo/>
 </template>
 
 <style scoped>
