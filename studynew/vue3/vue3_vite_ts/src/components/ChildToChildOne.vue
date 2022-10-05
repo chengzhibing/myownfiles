@@ -15,7 +15,7 @@ let flag:boolean = true;
 const clickToTransDataToChildtwo = function () {
   flag = !flag;
   console.log(flag)
-  Bus.emit("on-click", flag)
+  Bus.emit("on-click", flag) 
 }
 
 </script>
