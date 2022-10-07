@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="huatu.98youxi.com" modified="2022-04-04T05:33:24.236Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" etag="NV0XjgcGLG4zvdbVlNWy" version="14.7.8" type="online">
+  <diagram id="owHaOjBAqSsPevanpXa_" name="第 1 页">
+    <mxGraphModel dx="868" dy="486" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="26" target="27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="ref--get" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="trackRefValue" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="130" y="221" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="37" value="ref.dep = createDep()" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="390" y="228" width="190" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="" style="endArrow=classic;html=1;exitX=0.995;exitY=0.35;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="41" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="650" y="266" as="sourcePoint" />
+            <mxPoint x="656" y="261" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="43" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="27" target="37" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="380" as="sourcePoint" />
+            <mxPoint x="360" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="51" value="ref.dep.push(activeEffect)&#xa;这里的activeEffect是一个全局变量&#xa;里面包含了effect的回调函数" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=52;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="660" y="240" width="210" height="78" as="geometry">
+            <mxRectangle x="660" y="260" width="170" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="52" value="activeEffect.deps.push(dep)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="51" vertex="1">
+          <mxGeometry y="52" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="trackEffects(ref.dep,handlers)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="390" y="254" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="56" value="ref-set" style="html=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="380" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="57" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="56" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="150" y="470" as="sourcePoint" />
+            <mxPoint x="175" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="58" value="triggeRefValue" style="html=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="480" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="59" value="" style="html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="460" width="180" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="60" value="triggerEffects(ref.dep, {})" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="320" y="560" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="62" value="ref = toRaw(ref)" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="323" y="510" width="110" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="63" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="510" as="sourcePoint" />
+            <mxPoint x="320" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="64" value="" style="endArrow=none;html=1;exitX=0.007;exitY=0.562;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="59" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="330" y="545" as="sourcePoint" />
+            <mxPoint x="460" y="535" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="324" y="535" />
+              <mxPoint x="500" y="535" />
+              <mxPoint x="490" y="535" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="70" value="1、循环dep，得到effect(dep中的每一项)&lt;br&gt;2、执行effect.schedulser()&lt;br&gt;或者effect.run()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="510" width="230" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="72" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="59" target="70" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="590" as="sourcePoint" />
+            <mxPoint x="550" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="74" value="function effect(fn)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="120" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="77" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="74" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="720" as="sourcePoint" />
+            <mxPoint x="300" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="78" value="_effect = new ReactiveEffect(fn)&lt;br&gt;执行一次_effect.run()&lt;br&gt;&lt;span style=&quot;text-align: left&quot;&gt;activeEffect赋值为&lt;/span&gt;_effect&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="308" y="670" width="222" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="79" value="1、实例化的时候，将fn定义为实例的一个属性&lt;br&gt;2、定义实例的run方法会执行fn()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="670" width="260" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
