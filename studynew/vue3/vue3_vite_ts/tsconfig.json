@@ -10,6 +10,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src"],
+      "@router": ["src/router"],
+      "@assets": ["src/assets"],
+      "@server": ["src/server"],
+      "@store": ["src/store"]
+    },
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
