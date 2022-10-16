@@ -5,7 +5,7 @@
   "license": "MIT",
   "bin": "./bin/index.js",
   "devDependencies": {
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "webpack": "^5.70.0"
   }
 }
