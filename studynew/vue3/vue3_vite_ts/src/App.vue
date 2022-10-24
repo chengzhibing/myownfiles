@@ -6,21 +6,26 @@
     </div>
     <div class="box-right"></div>
   </div> -->
-  <div>
+  <!-- <div>
   切换不同的路由
   <hr/>
-  <router-view></router-view>
-  </div>
+  <router-view></router-view> -->
+  <!-- </div> -->
+  <HelloWorld/>
 </template>
 
 <script setup lang="ts">
+  import HelloWorld from "./components/HelloWorld.vue"
   import {onMounted} from "vue";
   import {useListStore} from "./store/liststore"
   import bgImg from "./assets/1.jpeg"
   import * as echarts from "echarts"
   import "./assets/china.js"
   const getUselist = useListStore()
-  getUselist.getList()
+  getUselist.getList().then(() => {
+    console.log(getUselist.list)
+  })
+  
   onMounted(() => {
    const mapEcharts = echarts.init(document.querySelector("#box") as HTMLElement)
    const data = [

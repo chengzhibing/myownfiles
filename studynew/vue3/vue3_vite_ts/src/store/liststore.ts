@@ -9,7 +9,8 @@ export const useListStore = defineStore("list",{
   actions: {
     async getList() {
       const result = await getApiList()
-      console.log(result);
+      this.list = result.data.data.chinaDayAddList;
+      console.log(this.list);
     }
   }
 })
