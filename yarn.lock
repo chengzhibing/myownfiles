@@ -7,10 +7,50 @@
   "resolved" "https://registry.npmmirror.com/@babel/standalone/-/standalone-7.17.11.tgz"
   "version" "7.17.11"
 
+"@cspotcode/source-map-support@^0.8.0":
+  "version" "0.8.1"
+  dependencies:
+    "@jridgewell/trace-mapping" "0.3.9"
+
+"@jridgewell/resolve-uri@^3.0.3":
+  "version" "3.1.1"
+
+"@jridgewell/sourcemap-codec@^1.4.10":
+  "version" "1.4.15"
+
+"@jridgewell/trace-mapping@0.3.9":
+  "version" "0.3.9"
+  dependencies:
+    "@jridgewell/resolve-uri" "^3.0.3"
+    "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@tsconfig/node10@^1.0.7":
+  "version" "1.0.9"
+
+"@tsconfig/node12@^1.0.7":
+  "version" "1.0.11"
+
+"@tsconfig/node14@^1.0.0":
+  "version" "1.0.3"
+
+"@tsconfig/node16@^1.0.2":
+  "version" "1.0.4"
+
+"@types/node@*":
+  "version" "20.8.9"
+  dependencies:
+    "undici-types" "~5.26.4"
+
+"acorn-walk@^8.1.1":
+  "version" "8.3.0"
+
 "acorn@^5.2.1":
   "integrity" "sha1-Po2KmUfQWZoXltECJddDL0pKz14="
   "resolved" "https://registry.npmmirror.com/acorn/download/acorn-5.7.4.tgz"
   "version" "5.7.4"
+
+"acorn@^8.4.1":
+  "version" "8.11.2"
 
 "align-text@^0.1.1", "align-text@^0.1.3":
   "integrity" "sha1-DNkKVhCT810KmSVsIrcGlDP60Rc="
@@ -76,6 +116,9 @@
   "integrity" "sha1-yxAt8cVvUSPquLZ817mAJ6AnkXg="
   "resolved" "https://registry.nlark.com/ansi-styles/download/ansi-styles-1.0.0.tgz"
   "version" "1.0.0"
+
+"arg@^4.1.0":
+  "version" "4.1.3"
 
 "arr-diff@^2.0.0":
   "integrity" "sha1-jzuCf5Vai9ZpaX5KQlasPOrjVs8="
@@ -1142,17 +1185,17 @@
 
 "core-js@^2.4.0":
   "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
-  "resolved" "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz"
+  "resolved" "https://registry.npmmirror.com/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
 "core-js@^2.4.1":
   "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
-  "resolved" "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz"
+  "resolved" "https://registry.npmmirror.com/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
 "core-js@^2.5.0":
   "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
-  "resolved" "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz"
+  "resolved" "https://registry.npmmirror.com/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
 "core-util-is@~1.0.0":
@@ -1166,6 +1209,9 @@
   "version" "3.0.2"
   dependencies:
     "capture-stack-trace" "^1.0.0"
+
+"create-require@^1.1.0":
+  "version" "1.1.1"
 
 "cross-spawn@^5.0.1":
   "integrity" "sha1-6L0O/uWPz/b4+UUQoKVUu/ojVEk="
@@ -1242,6 +1288,9 @@
   dependencies:
     "acorn" "^5.2.1"
     "defined" "^1.0.0"
+
+"diff@^4.0.1":
+  "version" "4.0.2"
 
 "dot-prop@^4.2.1":
   "integrity" "sha1-RYhBlKcfws2nHLtLzrOk3S9DO6Q="
@@ -2115,6 +2164,9 @@
   dependencies:
     "pify" "^3.0.0"
 
+"make-error@^1.1.1":
+  "version" "1.3.6"
+
 "math-random@^1.0.1":
   "integrity" "sha1-XdaUPJOFSCZwFtTjTwV1gwgMUUw="
   "resolved" "https://registry.nlark.com/math-random/download/math-random-1.0.4.tgz"
@@ -2956,10 +3008,34 @@
   "resolved" "https://registry.npm.taobao.org/tryor/download/tryor-0.1.2.tgz"
   "version" "0.1.2"
 
+"ts-node@^10.9.1":
+  "integrity" "sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw=="
+  "resolved" "https://registry.npmmirror.com/ts-node/-/ts-node-10.9.1.tgz"
+  "version" "10.9.1"
+  dependencies:
+    "@cspotcode/source-map-support" "^0.8.0"
+    "@tsconfig/node10" "^1.0.7"
+    "@tsconfig/node12" "^1.0.7"
+    "@tsconfig/node14" "^1.0.0"
+    "@tsconfig/node16" "^1.0.2"
+    "acorn" "^8.4.1"
+    "acorn-walk" "^8.1.1"
+    "arg" "^4.1.0"
+    "create-require" "^1.1.0"
+    "diff" "^4.0.1"
+    "make-error" "^1.1.1"
+    "v8-compile-cache-lib" "^3.0.1"
+    "yn" "3.1.1"
+
 "tslib@^1.9.0":
   "integrity" "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
   "resolved" "https://registry.npmmirror.com/tslib/download/tslib-1.14.1.tgz"
   "version" "1.14.1"
+
+"typescript@^5.2.2", "typescript@>=2.7":
+  "integrity" "sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w=="
+  "resolved" "https://registry.npmmirror.com/typescript/-/typescript-5.2.2.tgz"
+  "version" "5.2.2"
 
 "uglify-js@^3.1.4":
   "integrity" "sha512-qZukoSxOG0urUTvjc2ERMTcAy+BiFh3weWAkeurLwjrCba73poHmG3E36XEjd/JGukMzwTL7uCxZiAexj8ppvQ=="
@@ -2970,6 +3046,9 @@
   "integrity" "sha512-z4o1fvKUojIWh9XuaVLUDdf86RQiq13AC1dmHbTpoyuu+bquHms76v16CjycCbec87J7z0k//SiQVk0sMdFmpQ=="
   "resolved" "https://registry.npmmirror.com/underscore/download/underscore-1.6.0.tgz"
   "version" "1.6.0"
+
+"undici-types@~5.26.4":
+  "version" "5.26.5"
 
 "unique-stream@^2.0.2":
   "integrity" "sha1-xl0RDppK35psWUiygFPZqNBMvqw="
@@ -3023,6 +3102,9 @@
   "integrity" "sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8="
   "resolved" "https://registry.npm.taobao.org/util-deprecate/download/util-deprecate-1.0.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Futil-deprecate%2Fdownload%2Futil-deprecate-1.0.2.tgz"
   "version" "1.0.2"
+
+"v8-compile-cache-lib@^3.0.1":
+  "version" "3.0.1"
 
 "vali-date@^1.0.0":
   "integrity" "sha1-G5BKWWCfsyjvB4E4Qgk09rhnCaY="
@@ -3163,3 +3245,6 @@
     "os-locale" "^1.4.0"
     "window-size" "^0.1.2"
     "y18n" "^3.2.0"
+
+"yn@3.1.1":
+  "version" "3.1.1"
